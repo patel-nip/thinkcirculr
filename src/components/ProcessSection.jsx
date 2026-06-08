@@ -84,26 +84,29 @@ export default function ProcessSection() {
 
     const frameObj = { frame: 0 };
 
-    // Scrub canvas frames
+    // Scrub canvas frames over 5 seconds
     tl.to(frameObj, {
       frame: totalFrames - 1,
       snap: 'frame',
       ease: 'none',
-      duration: 4,
+      duration: 5.0,
       onUpdate: () => {
         const currentFrame = Math.round(frameObj.frame);
         currentFrameRef.current = currentFrame;
         drawFrame(currentFrame);
       }
     }, 0)
+    // Fade out Title & Scroll Badge first
+    .to('.process-title', { opacity: 0, y: -30, scale: 0.98, duration: 0.8, ease: 'power2.out' }, 0)
+    .to('.scroll-badge', { opacity: 0, y: 15, duration: 0.8, ease: 'power2.out' }, 0)
     // Slide in the manufacturing step cards stagger-wise
-    .to('.process-step-1', { opacity: 1, x: 0, duration: 0.8 }, 0.2)
-    .to('.process-step-1', { opacity: 0, y: -20, duration: 0.5 }, 1.0)
-    .to('.process-step-2', { opacity: 1, x: 0, duration: 0.8 }, 1.2)
-    .to('.process-step-2', { opacity: 0, y: -20, duration: 0.5 }, 2.0)
-    .to('.process-step-3', { opacity: 1, x: 0, duration: 0.8 }, 2.2)
-    .to('.process-step-3', { opacity: 0, y: -20, duration: 0.5 }, 3.0)
-    .to('.process-step-4', { opacity: 1, x: 0, duration: 0.8 }, 3.2);
+    .to('.process-step-1', { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out' }, 0.8)
+    .to('.process-step-1', { opacity: 0, y: -20, duration: 0.4, ease: 'power2.in' }, 1.5)
+    .to('.process-step-2', { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out' }, 1.8)
+    .to('.process-step-2', { opacity: 0, y: -20, duration: 0.4, ease: 'power2.in' }, 2.5)
+    .to('.process-step-3', { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out' }, 2.8)
+    .to('.process-step-3', { opacity: 0, y: -20, duration: 0.4, ease: 'power2.in' }, 3.5)
+    .to('.process-step-4', { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out' }, 3.8);
 
     const handleResize = () => {
       drawFrame(currentFrameRef.current);
@@ -133,7 +136,7 @@ export default function ProcessSection() {
       </div>
 
       {/* Floating Info Header */}
-      <div className="absolute top-16 max-w-6xl mx-auto px-6 w-full text-center z-20 pointer-events-none">
+      <div className="process-title absolute top-24 left-0 right-0 max-w-6xl mx-auto px-6 text-center z-20 pointer-events-none">
         <span className="text-xs uppercase tracking-widest text-[#FAF8F5] bg-[#4A6B52] px-3 py-1 rounded-full shadow-md font-bold">
           The Process
         </span>
@@ -143,10 +146,10 @@ export default function ProcessSection() {
       </div>
 
       {/* Floating Info Cards Overlay */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 h-full flex flex-col justify-center gap-6 pointer-events-none">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-24 md:py-32 h-full flex flex-col justify-center gap-6 pointer-events-none">
         
         {/* Step 1: Harvesting */}
-        <div className="process-step-1 opacity-0 -translate-x-12 max-w-sm md:max-w-md self-start bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-[#4A6B52]/10 shadow-lg pointer-events-auto">
+        <div className="process-step-1 opacity-0 -translate-x-12 w-[calc(100%-3rem)] md:w-full max-w-sm md:max-w-md self-start ml-6 md:ml-20 bg-[#FAF8F5]/75 backdrop-blur-md p-6 rounded-2xl border border-[#4A6B52]/10 shadow-lg pointer-events-auto">
           <span className="text-xs uppercase tracking-widest text-[#4A6B52] font-extrabold font-body">
             Step 1: Sustainable Harvest
           </span>
@@ -159,7 +162,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Step 2: Pulping */}
-        <div className="process-step-2 opacity-0 translate-x-12 max-w-sm md:max-w-md self-end bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-[#4A6B52]/10 shadow-lg pointer-events-auto">
+        <div className="process-step-2 opacity-0 translate-x-12 w-[calc(100%-3rem)] md:w-full max-w-sm md:max-w-md self-end mr-6 md:mr-20 bg-[#FAF8F5]/75 backdrop-blur-md p-6 rounded-2xl border border-[#4A6B52]/10 shadow-lg pointer-events-auto">
           <span className="text-xs uppercase tracking-widest text-[#4A6B52] font-extrabold font-body">
             Step 2: Fibrous Pulping
           </span>
@@ -172,7 +175,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Step 3: Pressing */}
-        <div className="process-step-3 opacity-0 -translate-x-12 max-w-sm md:max-w-md self-start bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-[#4A6B52]/10 shadow-lg pointer-events-auto">
+        <div className="process-step-3 opacity-0 -translate-x-12 w-[calc(100%-3rem)] md:w-full max-w-sm md:max-w-md self-start ml-6 md:ml-20 bg-[#FAF8F5]/75 backdrop-blur-md p-6 rounded-2xl border border-[#4A6B52]/10 shadow-lg pointer-events-auto">
           <span className="text-xs uppercase tracking-widest text-[#4A6B52] font-extrabold font-body">
             Step 3: Pressing & Drying
           </span>
@@ -185,7 +188,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Step 4: Rolling */}
-        <div className="process-step-4 opacity-0 translate-x-12 max-w-sm md:max-w-md self-end bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-[#4A6B52]/10 shadow-lg pointer-events-auto">
+        <div className="process-step-4 opacity-0 translate-x-12 w-[calc(100%-3rem)] md:w-full max-w-sm md:max-w-md self-end mr-6 md:mr-20 bg-[#FAF8F5]/75 backdrop-blur-md p-6 rounded-2xl border border-[#4A6B52]/10 shadow-lg pointer-events-auto">
           <span className="text-xs uppercase tracking-widest text-[#4A6B52] font-extrabold font-body">
             Step 4: Core Rolling
           </span>
@@ -200,7 +203,7 @@ export default function ProcessSection() {
       </div>
 
       {/* Action scroll tracker badge */}
-      <div className="absolute bottom-12 z-20 pointer-events-none text-xs uppercase tracking-widest text-[#4A6B52] font-semibold bg-white/80 px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5">
+      <div className="scroll-badge absolute bottom-12 z-20 pointer-events-none text-xs uppercase tracking-widest text-[#4A6B52] font-semibold bg-white/80 px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5">
         <span>Scroll to see the process in action</span>
       </div>
     </section>
