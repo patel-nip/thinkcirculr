@@ -67,3 +67,14 @@ These prompts are designed for video generators to produce clean, daylit loops, 
 *   **Purpose:** Interactive drop feedback video.
 *   **Prompt:** 
     > A 3-second sequence. A clean, plain cardboard box drops onto a warm cream surface, opening dynamically with a satisfying, bouncy cartoon-like impact. From inside the box, a burst of paper leaf-shaped green confetti and cartoon sun emojis float upwards. Bouncy physics, bright daylit studio lighting, transparent background (alpha channel), clean 3D animation.
+
+### 6. Bamboo-to-Product Process Demonstration
+*   **Purpose:** A clear animation demonstrating how raw bamboo trees are processed and turned into final paper products.
+*   **Prompt:**
+    > An 8-second 3D isometric motion graphics sequence showcasing the process of converting raw bamboo into unbleached paper tissue rolls. On a soft warm cream (#FAF8F5) backdrop:
+    > 1. Harvest & Crush: A mature green bamboo stalk is sliced length-wise into raw, pale-beige fiber chips.
+    > 2. Pulping: The chips blend into a textured, organic water pulp inside a modern, cylindrical stainless-steel spinner.
+    > 3. Pressing & Drying: The wet pulp is drawn out into thin, textured unbleached paper sheets passing through rolling heated rollers.
+    > 4. Rolling: The dried sheets wind tightly onto a cardboard cylinder core, forming a finished, textured, unbleached 3-ply bamboo toilet paper roll.
+    > The transitions are fluid and mechanical, showing a realistic step-by-step physical processing connection rather than magical illusions. Bright daylit studio lighting, clean line styling, and professional cartoon physics. 60fps, crisp digital render.
+
