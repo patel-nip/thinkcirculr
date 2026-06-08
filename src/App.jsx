@@ -4,6 +4,7 @@ import SmoothScroll from './components/SmoothScroll';
 import HeroSection from './components/HeroSection';
 import DeforestationSection from './components/DeforestationSection';
 import GrowthSection from './components/GrowthSection';
+import ProcessSection from './components/ProcessSection';
 import AnatomySection from './components/AnatomySection';
 import ProductShelf from './components/ProductShelf';
 import BYOBConfigurator from './components/BYOBConfigurator';
@@ -23,6 +24,9 @@ export default function App() {
 
             {/* Section 3: Bamboo Growth Shoot Video Scrub */}
             <GrowthSection />
+
+            {/* Section 3.3: Bamboo to Roll Manufacturing Process Canvas Scrub */}
+            <ProcessSection />
 
             {/* Section 3.5: 360° Anatomy Product Rotation Video Scrub */}
             <AnatomySection />
